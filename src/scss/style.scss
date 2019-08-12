@@ -1,0 +1,209 @@
+// Charset =====================================================================
+@charset "UTF-8";
+
+// Normalize ===================================================================
+@import "normalize";
+@import "reset";
+@import "extensions";
+@import "functions";
+
+// Variables ===================================================================
+$black: #16161d;
+$white: #fff;
+$gray-900: mix($black, $white, 90%);
+$gray-800: mix($black, $white, 80%);
+$gray-700: mix($black, $white, 70%);
+$gray-600: mix($black, $white, 60%);
+$gray-500: mix($black, $white, 50%);
+$gray-400: mix($black, $white, 40%);
+$gray-300: mix($black, $white, 30%);
+$gray-200: mix($black, $white, 20%);
+$gray-100: mix($black, $white, 10%);
+$gray-50: mix($black, $white, 5%);
+
+$gray-700a: rgba($black, 0.75);
+$gray-300a: rgba($black, 0.3);
+$gray-100a: rgba($black, 0.1);
+
+$gold: #e8c166;
+
+$mobile: 44em;
+$tablet: 44em;
+$desktop: 66em;
+
+:root {
+	--large: 1.5rem;
+	--padding: 1rem;
+	--padding-small: 0.5em;
+	--radius: 4px;
+}
+
+// Base Styles =================================================================
+body {
+	font-family: IBM Plex Mono, Helvetica Neue, Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+	background: $black;
+	color: $white;
+
+	@media (min-width: $tablet) {
+		padding-right: 50%;
+	}
+}
+
+h1 {
+	text-transform: uppercase;
+	font-size: 3em;
+	line-height: 1;
+	margin-bottom: -1.25em;
+
+	@media (min-width: $tablet) {
+		font-size: 2em;
+		margin-bottom: 0;
+	}
+}
+
+h2 {
+	text-transform: uppercase;
+	font-size: 0.9em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid;
+	display: inline-block;
+	color: $gold;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-weight: normal;
+	margin-bottom: 1em;
+}
+
+p {
+	font-size: 0.9em;
+}
+
+.container {
+	position: relative;
+	z-index: 10;
+	padding: 2rem;
+}
+
+.profile {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 1em;
+}
+
+.bio {
+	flex: 1 0 15em;
+
+	p {
+		font-size: 0.8em;
+	}
+}
+
+.headshot {
+	width: 8em;
+	height: 8em;
+	vertical-align: top;
+	margin-right: 2em;
+	margin-bottom: 1em;
+}
+
+.cover-photo {
+	position: relative;
+	background-image: url("../img/bridge_1600x1600.jpg");
+	background-size: cover;
+	background-position: center center;
+	height: 40vh;
+	background-color: gray;
+	overflow: hidden;
+	background-blend-mode: overlay;
+
+	@media (min-width: $tablet) {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 50%;
+		height: initial;
+		z-index: -1;
+	}
+}
+
+footer {
+	font-size: 0.8em;
+	color: $gray-300;
+	border-top: thin solid $gray-900;
+	text-transform: uppercase;
+	text-align: right;
+}
+
+.pulse {
+	$size: 100vw;
+	position: absolute;
+	width: $size;
+	height: $size;
+	margin: (-$size/2) 0 0 (-$size/2);
+
+	&.pulse-a {
+		top: 25%;
+		left: 65%;
+		transform: perspective(500px) rotateX(75deg) scale(0.6);
+
+		@media (min-width: $tablet) {
+			top: 35%;
+		}
+	}
+	&.pulse-b {
+		top: 60%;
+		left: 35%;
+		transform: perspective(500px) rotateX(75deg);
+
+		@media (min-width: $tablet) {
+			top: 65%;
+		}
+	}
+}
+
+.dot {
+	$duration: 10s;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 50%;
+	animation: grow $duration linear infinite both;
+
+	.pulse-a & {
+		background: rgba(adjust-hue($gold, -20deg), 0.5);
+	}
+
+	.pulse-b & {
+		background: rgba($gold, 0.5);
+	}
+
+	@keyframes grow {
+		from {
+			transform: scale3d(0, 0, 0);
+			opacity: 0;
+		}
+		5% {
+			opacity: 1;
+		}
+		to {
+			transform: scale3d(1, 1, 1);
+			opacity: 0;
+		}
+	}
+
+	$items: 5;
+
+	@for $i from 1 through $items {
+		&:nth-child(#{$i}) {
+			animation-delay: $i/$items * $duration;
+		}
+	}
+}
