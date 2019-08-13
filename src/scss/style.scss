@@ -162,11 +162,11 @@ p {
 }
 
 footer {
+	margin-top: 1rem;
 	font-size: 0.8em;
 	color: $gray-300;
 	border-top: thin solid $gray-900;
 	text-transform: uppercase;
-	text-align: right;
 
 	.container {
 		padding: 1rem 2rem;
