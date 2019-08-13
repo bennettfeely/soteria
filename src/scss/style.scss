@@ -52,7 +52,6 @@ body {
 }
 
 header {
-	margin-bottom: -3rem;
 	opacity: 0;
 	transition: color 5s, opacity 0.5s;
 	color: $gold;
@@ -77,21 +76,10 @@ header {
 	}
 }
 
-section {
-	// border-top: thin solid $gray-900;
-}
-
-h1 {
-	display: inline-block;
-	text-transform: uppercase;
-	font-size: 2em;
-	line-height: 1;
-	border: 1px solid;
-	padding: 0.5rem 0.75rem;
-
-	@media (min-width: $tablet) {
-		font-size: 1em;
-	}
+.logo {
+	width: 200px;
+	height: auto;
+	vertical-align: top;
 }
 
 h2 {
