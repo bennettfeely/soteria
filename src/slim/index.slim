@@ -4,17 +4,33 @@ html lang="en"
 		meta charset="utf-8"
 		meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		title Soteria Radar
-		meta name="theme-color" content="#ffffff"
 		meta name="description" content="Soteria Radar is a Pittsburgh based startup creating the next generation of intelligent infrastructure and safety devices for vehicle systems"
+		meta name="theme-color" content="#16161d"
 		link href="/css/style.min.css" rel="stylesheet"
 		link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet" type="text/css"
-		link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png"
-		link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png"
-		link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png"
+		link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png"
+		link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png"
+		link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png"
 	body
 		header
 			.container
-				img.logo src="img/logo_text_black_white_615x200.png" alt="Soteria Radar" width="615" height="200"
+				.logo
+					svg.logo-icon xmlns="http://www.w3.org/2000/svg" viewbox="0 0 14 20" width="50" height="75"
+						g transform="translate(13.25,.5) rotate(90)"
+							path fill="currentColor" d="M0 6A6 6 0 0 1 6 0L6 2A4 4 0 0 0 2 6ZM4 6A2 2 0 0 1 6 4L6 6Z"
+						g transform="translate(.75,.5)"
+							path fill="currentColor" d="M0 6A6 6 0 0 1 6 0L6 2A4 4 0 0 0 2 6ZM4 6A2 2 0 0 1 6 4L6 6Z"
+						g transform="translate(.75,13) rotate(270)"
+							path fill="currentColor" d="M0 6A6 6 0 0 1 6 0L6 2A4 4 0 0 0 2 6ZM4 6A2 2 0 0 1 6 4L6 6Z"
+						g transform="translate(13.25,7) rotate(90)"
+							path fill="currentColor" d="M0 6A6 6 0 0 1 6 0L6 2A4 4 0 0 0 2 6ZM4 6A2 2 0 0 1 6 4L6 6Z"
+						g transform="translate(13.25,19.5) rotate(180)" 
+							path fill="currentColor" d="M0 6A6 6 0 0 1 6 0L6 2A4 4 0 0 0 2 6ZM4 6A2 2 0 0 1 6 4L6 6Z"
+						g transform="translate(.75,19.5) rotate(270)"
+							path fill="currentColor" d="M0 6A6 6 0 0 1 6 0L6 2A4 4 0 0 0 2 6ZM4 6A2 2 0 0 1 6 4L6 6Z"
+					.logo-text
+						.logo-text-line Soteria
+						.logo-text-line Radar
 		.page
 			.cover-photo
 				.pulse.pulse-a
@@ -29,18 +45,38 @@ html lang="en"
 					.dot
 					.dot
 					.dot
-			section
+			section.about-us
 				.container
 					h2 About us
 					p We are Soteria Radar, a Pittsburgh-based startup developing hardware which interacts with varying autonomous and traditional vehicle systems to provide informational inputs and enhance system effectiveness. We are creating the next generation of intelligent infrastructure and safety devices to ensure stakeholders from cyclists to passengers are out of harm’s way.
-			section
+			section.our-team
 				.container
 					h2 Our Team
 					.profile
-						img.headshot width="400" height="400" src="img/stretch.jpg" alt="Clayton Edwards"
+						.sidebar
+							img.headshot width="400" height="400" src="img/stretch.jpg" alt="Clayton Edwards"
+							a href="https://www.linkedin.com/in/clayton-edwards-soteria/"
+								span LinkedIn
+								| &rarr;
 						.bio
 							h3 Clayton Edwards
-							p A 2019 graduate of Carnegie Mellon University's Master of Public Policy and Management program with an obsession for autonomous vehicles and barriers to their implementation. Through his independent studies and coursework concentrated in entrepreneurship and strategy development this project to aid the adoption of new trends in mobility and future smart cities began.
+							p A 2019 graduate of Carnegie Mellon University's Master of Public Policy and Management program with an obsession for autonomous vehicles and barriers to their implementation. Through his independent studies and coursework concentrated in entrepreneurship and strategy development this project to aid the adoption of new trends in mobility and smart cities began.
+					.profile
+						.sidebar
+							img.headshot width="400" height="400" src="img/leif.jpg" alt="Leif Uhlman"
+							a href="https://www.linkedin.com/in/leif-uhlman-8a626416b/"
+								span LinkedIn
+								| &rarr;
+						.bio
+							h3 Leif Uhlman
+							p A current student of Duquesne University's Physics program and the University of Pittsburgh's Mechanical Engineering program graduating in December 2019. He has a passion for mechanical design and mechatronics, developing his skillset through projects and work experience. He has utilized artificial intelligence for object detection automating video inspection lines and is excited to be developing hardware which will aid vehicle operation and improve safety.
+					.profile
+						.sidebar
+							img.headshot width="400" height="400" src="img/logos/icon_dim_400x400.png" alt=""
+						.bio
+							h3 Join us
+							p We are actively searching to add a passionate third cofounder to our team with a background in electrical engineering and embedded systems.
+							p If you would like to be considered please reach out to <a href="mailto:clayton@soteriaradar.com">clayton@soteriaradar.com</a> for more information, include a resume.
 			footer
 				.container
 					p &copy; 2019 Soteria Radar

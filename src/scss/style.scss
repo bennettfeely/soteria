@@ -36,6 +36,11 @@ $desktop: 66em;
 	--padding: 1rem;
 	--padding-small: 0.5em;
 	--radius: 4px;
+	--logo-size: 5rem;
+
+	@media (min-width: $tablet) {
+		--logo-size: 3rem;
+	}
 }
 
 // Base Styles =================================================================
@@ -49,22 +54,56 @@ body {
 	@media (min-width: $tablet) {
 		padding-right: 50%;
 	}
+
+	@media (min-width: $desktop) {
+		padding-left: calc(50% - 40em);
+		padding-right: 50%;
+	}
 }
 
-header {
-	opacity: 0;
-	transition: color 5s, opacity 0.5s;
+// Typography ============================================================================
+h1 {
+	display: inline-block;
+	text-transform: uppercase;
+	font-size: 2rem;
+	border: thin solid;
+	padding: 1rem;
+	line-height: 1;
+}
+h2,
+h3 {
+	display: inline-block;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 0.9em;
 	color: $gold;
+	border-bottom: 1px solid;
+	margin-bottom: 1rem;
+}
 
-	.cover-photo-is-loaded & {
-		opacity: 1;
-		color: $white;
-	}
+h3 {
+	font-size: 0.9em;
+}
 
-	@media (min-width: $tablet) {
-		font-size: 2em;
-		margin-bottom: 0;
+p {
+	font-size: 0.8em;
+	margin-top: 1rem;
+}
+
+a {
+	color: $white;
+
+	&:hover {
+		color: $gold;
 	}
+}
+
+// Structural ============================================================================
+section {
+	border-top: thin solid $gray-900;
 }
 
 .page {
@@ -76,60 +115,86 @@ header {
 	}
 }
 
-.logo {
-	width: 200px;
-	height: auto;
-	vertical-align: top;
-}
-
-h2 {
-	display: inline-block;
-	text-transform: uppercase;
-	font-size: 0.9em;
-	margin-bottom: 1em;
-	border-bottom: 1px solid;
-	color: $gold;
-}
-
-h3 {
-	text-transform: uppercase;
-	font-size: 0.8em;
-	font-weight: normal;
-	margin-bottom: 1em;
-}
-
-p {
-	font-size: 0.9em;
-}
-
 .container {
 	position: relative;
 	z-index: 10;
 	padding: 2rem;
 }
 
+// Header ================================================================================
+header {
+	opacity: 0;
+	transition: color 5s, opacity 0.5s;
+	color: $gold;
+	margin-bottom: -3.5em;
+
+	.cover-photo-is-loaded & {
+		opacity: 1;
+		color: $white;
+	}
+
+	@media (min-width: $tablet) {
+		margin-bottom: 0;
+	}
+}
+
+.logo {
+	display: flex;
+}
+
+.logo-icon {
+	width: auto;
+	height: var(--logo-size);
+}
+
+.logo-text {
+	text-transform: uppercase;
+	font-size: calc(var(--logo-size) / 2);
+	line-height: calc(var(--logo-size) / 2);
+	margin-left: calc(var(--logo-size) / 5);
+}
+
+// About Us ==============================================================================
+.about-us {
+	p {
+		font-size: 1em;
+	}
+}
+
+// Our Team ==============================================================================
 .profile {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top: 1em;
+	margin-bottom: 2rem;
+}
+
+.sidebar {
+	width: 8rem;
+	margin-right: 2rem;
+
+	a {
+		text-decoration: none;
+		font-size: 0.75em;
+
+		span {
+			text-decoration: underline;
+			margin-right: 1ch;
+		}
+	}
 }
 
 .bio {
 	flex: 1 0 15em;
-
-	p {
-		font-size: 0.8em;
-	}
 }
 
 .headshot {
-	width: 8em;
-	height: 8em;
+	width: 100%;
+	height: auto;
 	vertical-align: top;
-	margin-right: 2em;
-	margin-bottom: 1em;
+	margin-bottom: 1rem;
 }
 
+// Cover photo ===========================================================================
 .cover-photo {
 	position: relative;
 	background-image: url("../img/bridge_color_contrast_1600x1600.jpg");
@@ -146,18 +211,6 @@ p {
 		left: 50%;
 		height: initial;
 		z-index: -1;
-	}
-}
-
-footer {
-	margin-top: 1rem;
-	font-size: 0.8em;
-	color: $gray-300;
-	border-top: thin solid $gray-900;
-	text-transform: uppercase;
-
-	.container {
-		padding: 1rem 2rem;
 	}
 }
 
@@ -178,7 +231,7 @@ footer {
 		}
 
 		.dot {
-			background: rgba(adjust-hue($gold, -15deg), 0.5);
+			background: rgba(adjust-hue($gold, -5deg), 0.5);
 		}
 	}
 	&.pulse-b {
@@ -227,5 +280,17 @@ footer {
 			animation-duration: $duration;
 			animation-delay: $i/$items * $duration;
 		}
+	}
+}
+
+// Footer ================================================================================
+footer {
+	font-size: 0.8em;
+	color: $gray-300;
+	border-top: thin solid $gray-900;
+	text-transform: uppercase;
+
+	.container {
+		padding: 1rem 2rem;
 	}
 }
