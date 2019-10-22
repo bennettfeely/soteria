@@ -155,7 +155,8 @@ header {
 }
 
 // About Us ==============================================================================
-.about-us {
+.about-us,
+.contact-us {
 	p {
 		font-size: 1em;
 	}
@@ -173,6 +174,7 @@ header {
 	margin-right: 2rem;
 
 	a {
+		display: block;
 		text-decoration: none;
 		font-size: 0.75em;
 
